@@ -1,5 +1,5 @@
 const express = require('express');
-const pool = require('../db'); // Corregido: './db' para consistencia
+const pool = require('./db'); // Corregido: './db' para consistencia
 const router = express.Router();
 
 // GET presupuesto de una persona

@@ -1,9 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const presupuestoRoutes = require('../routes_presupuesto');
-const gastosFijosRoutes = require('../routes_gastosFijos');
-const gastosSemanalesRoutes = require('../routes_gastosSemanales');
+const presupuestoRoutes = require('./routes_presupuesto');
+const gastosFijosRoutes = require('./routes_gastosFijos');
+const gastosSemanalesRoutes = require('./routes_gastosSemanales');
 
 const app = express();
 app.use(cors());

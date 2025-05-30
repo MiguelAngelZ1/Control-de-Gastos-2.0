@@ -9,6 +9,7 @@ router.get('/:persona', async (req, res) => {
     const result = await pool.query('SELECT * FROM presupuesto WHERE persona = $1', [persona]);
     res.json(result.rows[0] || {});
   } catch (err) {
+    console.error('Error en presupuesto:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });
@@ -29,6 +30,7 @@ router.post('/', async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
+    console.error('Error en presupuesto:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });

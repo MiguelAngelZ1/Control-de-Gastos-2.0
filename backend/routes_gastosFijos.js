@@ -9,6 +9,7 @@ router.get('/:persona', async (req, res) => {
     const result = await pool.query('SELECT * FROM gastos_fijos WHERE persona = $1 ORDER BY id', [persona]);
     res.json(result.rows);
   } catch (err) {
+    console.error('Error en gastos fijos:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });
@@ -24,6 +25,7 @@ router.post('/:persona', async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
+    console.error('Error en gastos fijos:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });
@@ -39,6 +41,7 @@ router.put('/:persona/:id', async (req, res) => {
     );
     res.json({ ok: true });
   } catch (err) {
+    console.error('Error en gastos fijos:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });
@@ -50,6 +53,7 @@ router.delete('/:persona/:id', async (req, res) => {
     await pool.query('DELETE FROM gastos_fijos WHERE id=$1 AND persona=$2', [id, persona]);
     res.json({ ok: true });
   } catch (err) {
+    console.error('Error en gastos fijos:', err); // Log para Render
     res.status(500).json({ error: err.message });
   }
 });
